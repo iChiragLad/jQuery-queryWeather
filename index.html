@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>Trying plugin</title>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
+    <script src="jquery-3.0.0.js"></script>
+</head>
+<body>
+    <h1>Current Weather Status : </h1>
+    <div class="wData"></div>
+    
+    <script>
+        window.onload = function () {
+            if (window.jQuery == undefined) {
+
+                var fileref = document.createElement('script');
+                fileref.setAttribute("src", "jquery-3.0.0.js");
+                document.getElementsByTagName("head")[0].appendChild(fileref);
+            }
+                
+        };
+    </script>
+    <script src="jquery.queryWeather.js"></script>
+
+    <script>
+        $('.wData').queryWeather({
+            searchCity: "Mumbai",
+            refreshRate: 10000,
+            onComplete: function () {
+                console.log("Spam");
+            }
+        }).css('background', 'red');
+    </script>
+</body>
+</html>
